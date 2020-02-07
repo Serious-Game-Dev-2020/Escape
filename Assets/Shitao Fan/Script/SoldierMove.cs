@@ -6,7 +6,7 @@ public class SoldierMove : MonoBehaviour
 {
     public GameObject hit;
     public GameObject soldier;
-    public float moveSpeed = 40.0f;
+    public float moveSpeed = 50.0f;
     
     
     // Start is called before the first frame update
@@ -19,7 +19,7 @@ public class SoldierMove : MonoBehaviour
      void OnTriggerEnter(Collider hit) 
     {
         
-        Debug.Log("Hey");
+        Debug.Log("Move");
          soldier.transform.position += Vector3.forward*moveSpeed* Time.deltaTime;
         
     }
