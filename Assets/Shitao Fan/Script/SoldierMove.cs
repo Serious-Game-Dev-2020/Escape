@@ -24,6 +24,14 @@ public class SoldierMove : MonoBehaviour
         
     }
 
+    public void Move() 
+    {
+        
+        Debug.Log("Move");
+        soldier.transform.position += Vector3.forward*moveSpeed* Time.deltaTime;
+        
+    }
+
     // Update is called once per frame
     void Update()
     {
