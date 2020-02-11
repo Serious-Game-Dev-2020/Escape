@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SoldierMoveLeft : MonoBehaviour
+public class MarchRightLeg : MonoBehaviour
 {
-  
     Animator leftLeg;
     Animation march;
 
@@ -17,33 +16,32 @@ public class SoldierMoveLeft : MonoBehaviour
         
     }
 
-    void MarchFront()
+   
+    void MarchBack()
     {
-        if (Input.GetKey(KeyCode.A))
-        
+        if (Input.GetKey(KeyCode.D))
+
         {
-        leftLeg.SetBool("Front",true);
         
+        leftLeg.SetBool("Back",true);
         }
 
-        if (Input.GetKeyUp(KeyCode.A))
+        if (Input.GetKeyUp(KeyCode.D))
         
         {
-        leftLeg.SetBool("Front",false);
         
-        // march.enabled=false;
-        // leftLeg.GetComponent<Animator> ().Rebind ();
+        leftLeg.SetBool("Back",false);
+        // march.Stop();
         }
     }
-    
 
     // Update is called once per frame
     void Update()
     {
-        MarchFront();
-        
+
+        MarchBack();
     }
 
         
-
 }
+

@@ -374,7 +374,6 @@ GameObject:
   - component: {fileID: 270584161}
   - component: {fileID: 270584160}
   - component: {fileID: 270584159}
-  - component: {fileID: 270584164}
   m_Layer: 0
   m_Name: Leg Pivot
   m_TagString: Untagged
@@ -437,7 +436,7 @@ BoxCollider:
   m_GameObject: {fileID: 270584157}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -487,20 +486,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 270584157}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &270584164
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 270584157}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e16a80930bd60849a8c4494172ebcca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soldier: {fileID: 994975384}
-  moveSpeed: 1000
 --- !u!4 &300775586 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3184015208683480896, guid: ffd41a43ba0c3644f9be62a275721470,
@@ -731,7 +716,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: cfeee0d731636634aab5189a8b1fd5de, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1242,7 +1227,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: cfeee0d731636634aab5189a8b1fd5de, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1555,7 +1540,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hit: {fileID: 667533297}
   soldier: {fileID: 994975384}
-  moveSpeed: 50
+  moveSpeed: 55
 --- !u!54 &994975387
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2399,7 +2384,6 @@ GameObject:
   - component: {fileID: 1829536937}
   - component: {fileID: 1829536935}
   - component: {fileID: 1829536940}
-  - component: {fileID: 1829536936}
   m_Layer: 0
   m_Name: Leg Pivot
   m_TagString: Untagged
@@ -2441,20 +2425,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1829536936
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1829536933}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e16a80930bd60849a8c4494172ebcca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soldier: {fileID: 994975384}
-  moveSpeed: 60
 --- !u!65 &1829536937
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2464,7 +2434,7 @@ BoxCollider:
   m_GameObject: {fileID: 1829536933}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
