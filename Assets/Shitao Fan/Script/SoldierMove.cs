@@ -20,7 +20,7 @@ public class SoldierMove : MonoBehaviour
     {
         
         Debug.Log("Move");
-         soldier.transform.position += Vector3.forward*moveSpeed* Time.deltaTime;
+        soldier.transform.position += Vector3.forward*moveSpeed* Time.deltaTime;
         
     }
 
