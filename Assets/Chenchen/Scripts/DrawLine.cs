@@ -6,8 +6,6 @@ public class DrawLine : MonoBehaviour
 {
     //private const float End = .45f;
     private LineRenderer lineRenderer;
-    private float counter;
-    private float dist;
 
     public Transform origin;
     public Transform destination;
