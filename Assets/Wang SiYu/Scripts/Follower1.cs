@@ -14,54 +14,70 @@ public class Follower1 : MonoBehaviour
     private void Start()
     {
 
-    MoveSpeed = 3.0f;
-    character = gameObject.GetComponent<Animator>();
+        MoveSpeed = 3.0f;
+        character = gameObject.GetComponent<Animator>();
 
     }
 
 
 
-     //Update is called once per frame
+    //Update is called once per frame
     void Update()
     {
-    //if (Input.GetKeyDown(KeyCode.W))
-
-    if (Input.GetKey(KeyCode.A))
-    {
-    Run();
-    distanceTravelled += speed * Time.deltaTime;
-    transform.position = pathCreator.path.GetPointAtDistance(distanceTravelled);
-    transform.rotation = pathCreator.path.GetRotationAtDistance(distanceTravelled);
+        //if (Input.GetKeyDown(KeyCode.W))
+        PullTheDoor(); 
+        Run();    
     }
-
-    if (Input.GetKey(KeyCode.D))
-    {
-    Run();
-    distanceTravelled -= speed * Time.deltaTime;
-    transform.position = pathCreator.path.GetPointAtDistance(distanceTravelled);
-    transform.rotation = pathCreator.path.GetRotationAtDistance(distanceTravelled);
-    }
-    if (Input.GetKey(KeyCode.H))
-    {
-
-    PullTheDoor();
-
-    }
-    
-    }
-
-
-
 
     void PullTheDoor()
+
     {
-      character.SetTrigger("PullTheDoor");
-    }
-    void Run()
-    {
-      character.SetTrigger("Run");
+
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+                character.SetBool("PullTheDoor", true);
+        }
+
+        if (Input.GetKeyUp(KeyCode.H))
+        {
+                character.SetBool("PullTheDoor", false);
+        }
+
     }
 
+    void Run()
+
+    {
+        if (Input.GetKey(KeyCode.A))
+        {
+            character.SetBool("Run", true);
+            distanceTravelled += speed * Time.deltaTime;
+            transform.position = pathCreator.path.GetPointAtDistance(distanceTravelled);
+            transform.rotation = pathCreator.path.GetRotationAtDistance(distanceTravelled);
+        }
+        if (Input.GetKeyUp(KeyCode.A))
+        {
+            character.SetBool("Run", false);
+            
+        }
+        
+
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            character.SetBool("Run", false);
+            distanceTravelled -= speed * Time.deltaTime;
+            transform.position = pathCreator.path.GetPointAtDistance(distanceTravelled);
+            transform.rotation = pathCreator.path.GetRotationAtDistance(distanceTravelled);
+        }
+        if (Input.GetKeyUp(KeyCode.D))
+        {
+            character.SetBool("Run", false);
+            
+        }
+    }
+
+
+        
     
 }
 

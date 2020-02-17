@@ -13,7 +13,7 @@ public class SoldierMove : MonoBehaviour
     void Start()
     {
         hit = GetComponentInChildren<GameObject>();
-        soldier = GetComponentInParent<GameObject>();
+        soldier = transform.parent.gameObject;
         
     }
      void OnTriggerEnter(Collider hit) 
