@@ -8,12 +8,12 @@ public class Move : MonoBehaviour
     public GameObject player;
     public GameObject sphere;
     //public GameObject sphere1;
-    LineMove Lm;
+    LineMove[] Lm;
 
     void Start()
     {
         speed = 10f;
-        Lm = FindObjectOfType<LineMove >();
+        Lm = FindObjectsOfType<LineMove >();
         //DL = FindObjectOfType<DrawLine>();
 
     }
@@ -38,7 +38,10 @@ public class Move : MonoBehaviour
         //Check for a match with the specified name on any GameObject that collides with your GameObject
         if (collision.gameObject.name == "Bianjie")
             {
-               Lm.Smove = true;
+                foreach (LineMove m in Lm)
+            {
+                m.Smove = true;
+            }
             //sphere.transform.parent = player.transform;
 
             //DL.sheCondition = true;
