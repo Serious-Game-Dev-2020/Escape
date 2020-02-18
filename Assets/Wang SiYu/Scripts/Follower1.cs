@@ -9,13 +9,16 @@ public class Follower1 : MonoBehaviour
     public float speed = 5;
     float distanceTravelled;
     public float MoveSpeed;
-    public Animator character;
+    public GameObject character;
+    Animator moveCharacter;
+    
 
     private void Start()
     {
 
         MoveSpeed = 3.0f;
-        character = gameObject.GetComponent<Animator>();
+        moveCharacter = character.GetComponent<Animator> ();
+        
 
     }
 
@@ -35,12 +38,12 @@ public class Follower1 : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.H))
         {
-                character.SetBool("PullTheDoor", true);
+                moveCharacter.SetBool("PullTheDoor", true);
         }
 
         if (Input.GetKeyUp(KeyCode.H))
         {
-                character.SetBool("PullTheDoor", false);
+                moveCharacter.SetBool("PullTheDoor", false);
         }
 
     }
@@ -48,30 +51,31 @@ public class Follower1 : MonoBehaviour
     void Run()
 
     {
-        if (Input.GetKey(KeyCode.A))
-        {
-            character.SetBool("Run", true);
-            distanceTravelled += speed * Time.deltaTime;
-            transform.position = pathCreator.path.GetPointAtDistance(distanceTravelled);
-            transform.rotation = pathCreator.path.GetRotationAtDistance(distanceTravelled);
-        }
-        if (Input.GetKeyUp(KeyCode.A))
-        {
-            character.SetBool("Run", false);
-            
-        }
-        
-
         if (Input.GetKey(KeyCode.D))
         {
-            character.SetBool("Run", false);
-            distanceTravelled -= speed * Time.deltaTime;
+            moveCharacter.SetBool("Run", true);
+            distanceTravelled += speed * Time.deltaTime;
             transform.position = pathCreator.path.GetPointAtDistance(distanceTravelled);
             transform.rotation = pathCreator.path.GetRotationAtDistance(distanceTravelled);
         }
         if (Input.GetKeyUp(KeyCode.D))
         {
-            character.SetBool("Run", false);
+            moveCharacter.SetBool("Run", false);
+            
+        }
+        
+
+        if (Input.GetKey(KeyCode.A))
+        {
+            transform.localRotation *= Quaternion.Euler(0, 180, 0);
+            moveCharacter.SetBool("Run", true);
+            distanceTravelled -= speed * Time.deltaTime;
+            transform.position = pathCreator.path.GetPointAtDistance(distanceTravelled);
+            transform.rotation = pathCreator.path.GetRotationAtDistance(distanceTravelled);
+        }
+        if (Input.GetKeyUp(KeyCode.A))
+        {
+            moveCharacter.SetBool("Run", false);
             
         }
     }
