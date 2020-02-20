@@ -54,6 +54,7 @@ public class CharacterMove : MonoBehaviour
     transform.rotation = pathCreator.path.GetRotationAtDistance(-horizontalDistance);
     }*/
     }
+    
     void HorizontalMove(float horizontal, float vertical)
     {
         if(horizontal != 0)
@@ -77,6 +78,7 @@ public class CharacterMove : MonoBehaviour
             moveCharacter.SetBool("Run", false);
         }
     }
+
     void VerticalMove(float vertical)
     {
         if(vertical != 0 && verticalCondition == true)
