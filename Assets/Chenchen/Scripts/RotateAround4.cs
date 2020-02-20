@@ -2,31 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RotateAround : MonoBehaviour
+public class RotateAround4 : MonoBehaviour
 {
-    //public GameObject centralOb;
-   // public float speed;
-   public bool Timetimetime = false;
+    public bool Timetimetime = false;
     public float timer = 0.0f;
-    MoveBool[] mb;
+    MoveBool4[] mb4;
     //private int timeCount = 0;
     void Start()
     {
-        mb = FindObjectsOfType<MoveBool>();
+        mb4 = FindObjectsOfType<MoveBool4>();
     }
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name == "Prison")
+        if (collision.gameObject.name == "Player")
         {
             Timetimetime = true;
-            Debug.Log("pengdaole");
+            Debug.Log("pengdaole1");
             //timer += Time.deltaTime;
-           // Door();
+            // Door();
         }
-       
 
-        
+
+
 
     }
     public void Update()
@@ -42,7 +40,7 @@ public class RotateAround : MonoBehaviour
     {
         if (timer >= 0)
         {
-            foreach (MoveBool b in mb)
+            foreach (MoveBool4 b in mb4)
             {
                 b.Go = true;
             }
@@ -50,7 +48,7 @@ public class RotateAround : MonoBehaviour
         }
         if (timer >= 1.5)
         {
-            foreach (MoveBool b in mb)
+            foreach (MoveBool4 b in mb4)
             {
                 b.Go = false;
             }
@@ -58,7 +56,7 @@ public class RotateAround : MonoBehaviour
         }
         if (timer >= 3.5)
         {
-            foreach (MoveBool b in mb)
+            foreach (MoveBool4 b in mb4)
             {
                 b.Back = true;
             }
@@ -66,12 +64,11 @@ public class RotateAround : MonoBehaviour
         }
         if (timer >= 5)
         {
-            foreach (MoveBool b in mb)
+            foreach (MoveBool4 b in mb4)
             {
                 b.Back = false;
             }
             // Debug.Log("go");
         }
     }
-   
 }

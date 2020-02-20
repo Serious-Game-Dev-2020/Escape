@@ -2,31 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RotateAround : MonoBehaviour
+public class RotateAround10 : MonoBehaviour
 {
-    //public GameObject centralOb;
-   // public float speed;
-   public bool Timetimetime = false;
+    public bool Timetimetime = false;
     public float timer = 0.0f;
-    MoveBool[] mb;
+    MoveBool10[] mb10;
     //private int timeCount = 0;
     void Start()
     {
-        mb = FindObjectsOfType<MoveBool>();
+        mb10 = FindObjectsOfType<MoveBool10>();
     }
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name == "Prison")
+        if (collision.gameObject.name == "Player")
         {
             Timetimetime = true;
-            Debug.Log("pengdaole");
+            Debug.Log("pengdaole1");
             //timer += Time.deltaTime;
-           // Door();
+            // Door();
         }
-       
 
-        
+
+
 
     }
     public void Update()
@@ -42,7 +40,7 @@ public class RotateAround : MonoBehaviour
     {
         if (timer >= 0)
         {
-            foreach (MoveBool b in mb)
+            foreach (MoveBool10 b in mb10)
             {
                 b.Go = true;
             }
@@ -50,7 +48,7 @@ public class RotateAround : MonoBehaviour
         }
         if (timer >= 1.5)
         {
-            foreach (MoveBool b in mb)
+            foreach (MoveBool10 b in mb10)
             {
                 b.Go = false;
             }
@@ -58,7 +56,7 @@ public class RotateAround : MonoBehaviour
         }
         if (timer >= 3.5)
         {
-            foreach (MoveBool b in mb)
+            foreach (MoveBool10 b in mb10)
             {
                 b.Back = true;
             }
@@ -66,12 +64,11 @@ public class RotateAround : MonoBehaviour
         }
         if (timer >= 5)
         {
-            foreach (MoveBool b in mb)
+            foreach (MoveBool10 b in mb10)
             {
                 b.Back = false;
             }
             // Debug.Log("go");
         }
     }
-   
 }
