@@ -17,7 +17,7 @@ public class RotateAround : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name == "Player")
+        if (collision.gameObject.name == "Prison")
         {
             Timetimetime = true;
             Debug.Log("pengdaole");
