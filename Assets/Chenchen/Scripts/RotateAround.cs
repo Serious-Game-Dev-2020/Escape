@@ -19,6 +19,7 @@ public class RotateAround : MonoBehaviour
     {
         if (collision.gameObject.name == "Prison")
         {
+            if (Input.GetKey(KeyCode.H))
             Timetimetime = true;
             Debug.Log("pengdaole");
             //timer += Time.deltaTime;
