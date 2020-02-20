@@ -9,13 +9,19 @@ public class Follower1 : MonoBehaviour
     public float speed = 5;
     float distanceTravelled;
     public float MoveSpeed;
-    public Animator character;
+    public GameObject character;
+    public float pullSpeed;
+    Animator moveCharacter;
+    GameObject cube;
+    
+    
 
     private void Start()
     {
 
         MoveSpeed = 3.0f;
-        character = gameObject.GetComponent<Animator>();
+        moveCharacter = character.GetComponent<Animator> ();
+        
 
     }
 
@@ -26,55 +32,76 @@ public class Follower1 : MonoBehaviour
     {
         //if (Input.GetKeyDown(KeyCode.W))
         PullTheDoor(); 
-        Run();    
+        RunFront();    
+        RunBack();
     }
 
-    void PullTheDoor()
+    public void PullTheDoor()
 
     {
 
-        if (Input.GetKeyDown(KeyCode.H))
+        if (Input.GetKey(KeyCode.H))
         {
-                character.SetBool("PullTheDoor", true);
+                moveCharacter.SetBool("PullTheDoor", true);
+                distanceTravelled -= speed * pullSpeed*Time.deltaTime;
+                transform.position = pathCreator.path.GetPointAtDistance(distanceTravelled);
+                transform.rotation = pathCreator.path.GetRotationAtDistance(distanceTravelled);
+                
         }
 
         if (Input.GetKeyUp(KeyCode.H))
         {
-                character.SetBool("PullTheDoor", false);
+                moveCharacter.SetBool("PullTheDoor", false);
         }
 
     }
 
-    void Run()
+    public void RunFront()
 
     {
-        if (Input.GetKey(KeyCode.A))
+        if (!Input.GetKey(KeyCode.H))
         {
-            character.SetBool("Run", true);
-            distanceTravelled += speed * Time.deltaTime;
-            transform.position = pathCreator.path.GetPointAtDistance(distanceTravelled);
-            transform.rotation = pathCreator.path.GetRotationAtDistance(distanceTravelled);
-        }
-        if (Input.GetKeyUp(KeyCode.A))
-        {
-            character.SetBool("Run", false);
-            
-        }
         
+            if (Input.GetKey(KeyCode.D))
+            {
+                moveCharacter.SetBool("Run", true);
+                distanceTravelled += speed * Time.deltaTime;
+                transform.position = pathCreator.path.GetPointAtDistance(distanceTravelled);
+                transform.rotation = pathCreator.path.GetRotationAtDistance(distanceTravelled);
+            }
 
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            character.SetBool("Run", false);
-            distanceTravelled -= speed * Time.deltaTime;
-            transform.position = pathCreator.path.GetPointAtDistance(distanceTravelled);
-            transform.rotation = pathCreator.path.GetRotationAtDistance(distanceTravelled);
-        }
-        if (Input.GetKeyUp(KeyCode.D))
-        {
-            character.SetBool("Run", false);
-            
+            if (Input.GetKeyUp(KeyCode.D))
+            {
+                moveCharacter.SetBool("Run", false);
+                
+            }
         }
     }
+        
+    public void RunBack()
+    {
+        if (!Input.GetKey(KeyCode.H))
+        {
+            if (Input.GetKey(KeyCode.A))
+            {
+                
+                moveCharacter.SetBool("Run", true);
+                distanceTravelled -= speed * Time.deltaTime;
+                transform.position = pathCreator.path.GetPointAtDistance(distanceTravelled);
+                transform.rotation = pathCreator.path.GetRotationAtDistance(distanceTravelled);
+            }
+
+            if (Input.GetKeyUp(KeyCode.A))
+            {
+                
+                moveCharacter.SetBool("Run", false);
+                
+            }
+        }
+        
+        
+    }
+    
 
 
         
