@@ -10,7 +10,10 @@ public class Follower1 : MonoBehaviour
     float distanceTravelled;
     public float MoveSpeed;
     public GameObject character;
+    public float pullSpeed;
     Animator moveCharacter;
+    GameObject cube;
+    
     
 
     private void Start()
@@ -36,9 +39,13 @@ public class Follower1 : MonoBehaviour
 
     {
 
-        if (Input.GetKeyDown(KeyCode.H))
+        if (Input.GetKey(KeyCode.H))
         {
                 moveCharacter.SetBool("PullTheDoor", true);
+                distanceTravelled -= speed * pullSpeed*Time.deltaTime;
+                transform.position = pathCreator.path.GetPointAtDistance(distanceTravelled);
+                transform.rotation = pathCreator.path.GetRotationAtDistance(distanceTravelled);
+                
         }
 
         if (Input.GetKeyUp(KeyCode.H))
@@ -51,6 +58,9 @@ public class Follower1 : MonoBehaviour
     void Run()
 
     {
+        if (!Input.GetKey(KeyCode.H))
+        {
+        
         if (Input.GetKey(KeyCode.D))
         {
             moveCharacter.SetBool("Run", true);
@@ -58,6 +68,7 @@ public class Follower1 : MonoBehaviour
             transform.position = pathCreator.path.GetPointAtDistance(distanceTravelled);
             transform.rotation = pathCreator.path.GetRotationAtDistance(distanceTravelled);
         }
+
         if (Input.GetKeyUp(KeyCode.D))
         {
             moveCharacter.SetBool("Run", false);
@@ -67,17 +78,21 @@ public class Follower1 : MonoBehaviour
 
         if (Input.GetKey(KeyCode.A))
         {
-            transform.localRotation *= Quaternion.Euler(0, 180, 0);
+            
             moveCharacter.SetBool("Run", true);
             distanceTravelled -= speed * Time.deltaTime;
             transform.position = pathCreator.path.GetPointAtDistance(distanceTravelled);
             transform.rotation = pathCreator.path.GetRotationAtDistance(distanceTravelled);
         }
+
         if (Input.GetKeyUp(KeyCode.A))
         {
+            
             moveCharacter.SetBool("Run", false);
             
         }
+        }
+        
     }
 
 
