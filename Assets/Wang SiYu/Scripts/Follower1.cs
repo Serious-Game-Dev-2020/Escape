@@ -35,7 +35,7 @@ public class Follower1 : MonoBehaviour
         Run();    
     }
 
-    void PullTheDoor()
+    public void PullTheDoor()
 
     {
 
@@ -55,7 +55,7 @@ public class Follower1 : MonoBehaviour
 
     }
 
-    void Run()
+    public void Run()
 
     {
         if (!Input.GetKey(KeyCode.H))
