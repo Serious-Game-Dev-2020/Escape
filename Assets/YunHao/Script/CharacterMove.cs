@@ -89,9 +89,9 @@ public class CharacterMove : MonoBehaviour
             {
                 verticalDistance = 0.1f;
             }
-            else if(verticalDistance >= 0.9f)
+            else if(verticalDistance >= 0.5f)
             {
-                verticalDistance = 0.9f;
+                verticalDistance = 0.5f;
             }
             //charaRigidbody.velocity = new Vector3(vertical * moveSpeed, charaRigidbody.velocity.y, charaRigidbody.velocity.z);
             Debug.Log("进退");
