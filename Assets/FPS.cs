@@ -6,7 +6,7 @@ public class FPS : MonoBehaviour
 {
    public Transform camPivot;
    public Transform cam;
-   float heading=5;
+   float heading=0;
    Vector2  input;
 
 
@@ -62,7 +62,7 @@ public class FPS : MonoBehaviour
 
    void Update() 
    {
-       heading += Input.GetAxis("Mouse X")*Time.deltaTime*180;
+       heading += Input.GetAxis("Mouse X")*Time.deltaTime*45;
        camPivot.rotation=Quaternion.Euler(0,heading,0);
 
        input=new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
