@@ -69,7 +69,7 @@ public class CharacterMove : MonoBehaviour
                 horizontalDistance = 0.2f;
             }
             //charaRigidbody.velocity = new Vector3(charaRigidbody.velocity.x, charaRigidbody.velocity.y, -horizontal * moveSpeed);
-            Debug.Log("平移");
+            //Debug.Log("平移");
         }
         else if(horizontal == 0 && vertical == 0)
         {
@@ -94,7 +94,7 @@ public class CharacterMove : MonoBehaviour
                 verticalDistance = 0.5f;
             }
             //charaRigidbody.velocity = new Vector3(vertical * moveSpeed, charaRigidbody.velocity.y, charaRigidbody.velocity.z);
-            Debug.Log("进退");
+            //Debug.Log("进退");
         }
     }
     /*void RotationYTransfer(float rotationY)
