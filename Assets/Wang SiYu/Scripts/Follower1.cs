@@ -32,6 +32,7 @@ public class Follower1 : MonoBehaviour
     void PullTheDoor()
 
     {
+        
 
         if (Input.GetKeyDown(KeyCode.H))
         {
@@ -62,7 +63,7 @@ public class Follower1 : MonoBehaviour
         }
         
 
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKey(KeyCode.D))
         {
             character.SetBool("Run", false);
             distanceTravelled -= speed * Time.deltaTime;
