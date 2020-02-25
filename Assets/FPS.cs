@@ -17,7 +17,6 @@ public class FPS : MonoBehaviour
 
        input=new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
        input = Vector2.ClampMagnitude(input,1);
-      //  run.SetTrigger("RunFront");
 
        Vector3 camF =cam.forward;
        Vector3 camR= cam.right;
