@@ -17,27 +17,34 @@ public class RotateAround : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
+
+
         if (collision.gameObject.name == "Prison")
         {
-            Timetimetime = true;
-            Debug.Log("pengdaole");
-            //timer += Time.deltaTime;
-           // Door();
+           
+                Timetimetime = true;
+                Debug.Log("pengdaole");
+                //timer += Time.deltaTime;
+                // Door();
+          
         }
-       
-
+     }
         
 
-    }
+
+
+
+    
     public void Update()
     {
-        if (Timetimetime == true)
-        {
-            timer += Time.deltaTime;
-            Door();
-        }
-
+        
+            if (Timetimetime == true)
+            {
+                timer += Time.deltaTime;
+                Door();
+            }
     }
+
     void Door()
     {
         if (timer >= 0)
