@@ -76,6 +76,8 @@ public class RotateAround : MonoBehaviour
             foreach (MoveBool b in mb)
             {
                 b.Back = false;
+                timer = 0;
+                Timetimetime = false;
             }
             // Debug.Log("go");
         }

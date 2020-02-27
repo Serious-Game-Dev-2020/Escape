@@ -7,15 +7,18 @@ public class CharacterMove : MonoBehaviour
 {
     public PathCreator pathCreator;
     public PathCreator pathCreator2;
+    public GameObject coorCube;
     public float moveSpeed = 5.0f;
+    public float walkMoveSpeed = 5.0f;
     public float horizontalDistance;
     public float verticalDistance;
     //public float MoveSpeed;
     public GameObject Character;
     public Rigidbody charaRigidbody;
-    public bool followCondition = true;
+    public bool followCondition = false;
     public bool verticalCondition = true;
     Animator moveCharacter;
+    public float timer = 0.0f;
 
     void Start()
     {
@@ -27,18 +30,20 @@ public class CharacterMove : MonoBehaviour
     void Update()
     {
     //if (Input.GetKeyDown(KeyCode.W))
-    HorizontalMove(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-    VerticalMove(Input.GetAxis("Vertical"));
+    HorizontalMove(Input.GetAxis("Vertical"), Input.GetAxis("Horizontal"));
+    VerticalMove(Input.GetAxis("Horizontal"));
     if(followCondition == true)
     {
     pathCreator2.transform.position = transform.position;
     pathCreator2.transform.rotation = transform.rotation;
+    coorCube.transform.position = transform.position;
+    coorCube.transform.rotation = transform.rotation;
     }
-    if(Input.GetAxis("Horizontal") != 0)
+    if(Input.GetAxis("Vertical") != 0)
     {
         verticalCondition = false;
     }
-    if(Input.GetAxis("Horizontal") == 0)
+    if(Input.GetAxis("Vertical") == 0)
     {
         verticalCondition = true;
     }
@@ -54,39 +59,47 @@ public class CharacterMove : MonoBehaviour
     transform.rotation = pathCreator.path.GetRotationAtDistance(-horizontalDistance);
     }*/
     }
-    
     void HorizontalMove(float horizontal, float vertical)
     {
         if(horizontal != 0)
         {
-            moveCharacter.SetBool("Run", true);
-            followCondition = true;
-            verticalDistance = 0.5f;
-            horizontalDistance += moveSpeed * horizontal;
-            charaRigidbody.position = pathCreator.path.GetPointAtDistance(horizontalDistance);
-            charaRigidbody.rotation = pathCreator.path.GetRotationAtDistance(horizontalDistance);
-            if (horizontalDistance <= 0.2f )
+            charaRigidbody.velocity = new Vector3(charaRigidbody.velocity.x, charaRigidbody.velocity.y, -horizontal * walkMoveSpeed);
+            timer += Time.deltaTime;
+            if(timer >= 1.0f)
             {
-                horizontalDistance = 0.2f;
+                moveCharacter.SetBool("Run", true);
+                followCondition = true;
+                verticalDistance = 0.5f;
+                horizontalDistance += moveSpeed * horizontal;
+                charaRigidbody.position = pathCreator.path.GetPointAtDistance(horizontalDistance);
+                charaRigidbody.rotation = pathCreator.path.GetRotationAtDistance(horizontalDistance);
+                if (horizontalDistance <= 0.2f )
+                {
+                    horizontalDistance = 0.2f;
+                }
+                //charaRigidbody.velocity = new Vector3(charaRigidbody.velocity.x, charaRigidbody.velocity.y, -horizontal * moveSpeed);
+                Debug.Log("平移");
             }
-            //charaRigidbody.velocity = new Vector3(charaRigidbody.velocity.x, charaRigidbody.velocity.y, -horizontal * moveSpeed);
-            //Debug.Log("平移");
         }
-        else if(horizontal == 0 && vertical == 0)
+        else if(horizontal == 0)
         {
-            charaRigidbody.velocity = Vector3.zero;
-            moveCharacter.SetBool("Run", false);
+            timer = 0.0f;
+            if(vertical == 0)
+            {
+                charaRigidbody.velocity = Vector3.zero;
+                moveCharacter.SetBool("Run", false);
+            }
         }
     }
-
     void VerticalMove(float vertical)
     {
         if(vertical != 0 && verticalCondition == true)
         {
             followCondition = false;
-            verticalDistance += moveSpeed * -vertical * 0.2f;
+            verticalDistance += moveSpeed * vertical * 0.2f;
             //charaRigidbody.position = pathCreator2.path.GetPointAtDistance(verticalDistance);
-            charaRigidbody.position = pathCreator2.path.GetPointAtDistance(verticalDistance);
+            //charaRigidbody.position = pathCreator2.path.GetPointAtDistance(verticalDistance);
+            charaRigidbody.velocity = new Vector3(-vertical * walkMoveSpeed, charaRigidbody.velocity.y, charaRigidbody.velocity.z);
             if(verticalDistance <= 0.1f)
             {
                 verticalDistance = 0.1f;
@@ -95,8 +108,7 @@ public class CharacterMove : MonoBehaviour
             {
                 verticalDistance = 0.5f;
             }
-            //charaRigidbody.velocity = new Vector3(vertical * moveSpeed, charaRigidbody.velocity.y, charaRigidbody.velocity.z);
-            //Debug.Log("进退");
+            Debug.Log("进退");
         }
     }
     /*void RotationYTransfer(float rotationY)
