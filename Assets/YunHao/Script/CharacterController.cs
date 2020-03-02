@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterController1: MonoBehaviour
+
+public class CharacterController1 : MonoBehaviour
 {
     public GameObject Character;
     public Rigidbody charaRigidbody;

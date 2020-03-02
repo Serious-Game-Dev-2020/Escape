@@ -56,6 +56,3 @@ public class LightCollider7 : MonoBehaviour
 
     }
 }
-
-
-

@@ -24,6 +24,28 @@ public class CharacterMove : MonoBehaviour
     {
     verticalDistance = 0.5f;
     moveCharacter = Character.GetComponent<Animator> ();
+    
+    
+    // int finishedLevel = PlayerPrefs.GetInt("FinishedLevel"); // This goes on the main menu canvas and decides what buttons work
+    
+    // switch (finishedLevel) {
+    //     case 0:
+    //         // start at level 1
+    //         break;
+    //     case 1:
+    //         // start at level 2
+    //         break;
+    // }
+
+    // // if (currentLevel == 0)
+    // // {
+    // //     // do this
+    // // } else if (currentLevel == 1)
+    // // {
+    // //     // do this instead
+    // // }
+
+    // PlayerPrefs.SetInt("FinishedLevel", 1 ); // This goes at the end of every level so it updates when the player finishes it
         
     }
      //Update is called once per frame
