@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class DoorTrigger : MonoBehaviour
 {
-    RotateAround RotateAround;
+    RotateAround RotateAround;// = new RotateAround();
     public bool triggerCondition = false;
-    public Animator charaAnimator;
+    //public Animator charaAnimator;
     void Start()
     {
         RotateAround = FindObjectOfType<RotateAround>();
@@ -18,19 +18,30 @@ public class DoorTrigger : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.H) && triggerCondition == true)
             {
                 Debug.Log("DoorTrigger");
+                //foreach(RotateAround R in RotateAround)
+                //{
                 RotateAround.Timetimetime = true;
-                charaAnimator.SetBool("PullTheDoor", true);
+                //}
+                //RotateAround.Timetimetime = true;
+                //charaAnimator.SetBool("PullTheDoor", true);
             }
-        if (Input.GetKeyUp(KeyCode.H))
+        /*if (Input.GetKeyUp(KeyCode.H))
         {
-            charaAnimator.SetBool("PullTheDoor", false);
-        }
+            //charaAnimator.SetBool("PullTheDoor", false);
+        }*/
     }
     void OnTriggerEnter(Collider collision) 
     {
-        if(collision.tag == "Character")
+        if(collision.gameObject.name == "ThirdPersonController")
         {
             triggerCondition = true;
+        }
+    }
+    void OnTriggerExit(Collider collision) 
+    {
+        if(collision.gameObject.name == "ThirdPersonController")
+        {
+            triggerCondition = false;
         }
     }
 }

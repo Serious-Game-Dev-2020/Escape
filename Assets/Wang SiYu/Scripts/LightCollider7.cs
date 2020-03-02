@@ -11,7 +11,6 @@ public class LightCollider7 : MonoBehaviour
     public float MoveSpeed;
     AudioSource myAudio;
     public AudioClip myClip1;
-    public GameObject redSphere;
 
     private void Start()
     {
@@ -57,6 +56,3 @@ public class LightCollider7 : MonoBehaviour
 
     }
 }
-
-
-
