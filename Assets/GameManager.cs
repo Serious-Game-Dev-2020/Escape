@@ -36,9 +36,13 @@ public class GameManager : MonoBehaviour
        Init();
    } 
 
-   void Init(){
-       SceneManager.LoadScene("01Main");
+   public void Init(){
+       PlayerPrefs.GetString("CurrentChapterNumber",);
+       SceneManager.LoadScene("Final3.0");
+       SceneManager.LoadScene("WindScene");
+
    }
+   public void nothing(){}
 
    
 
