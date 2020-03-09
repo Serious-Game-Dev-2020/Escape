@@ -14,12 +14,13 @@ public class SceneLoad : MonoBehaviour
     //condition to chapterchange
     void OnMouseDown(){
         ChapterChoose();
+         //   GetComponent<Renderer>().material.color=chapter.chapter1;
     }
     void ChapterChoose()
    {
        switch(gameManager.chapter){
        case Chapternumber.chapter1:
-            GetComponent<Renderer>().material.color=chapter.chapter1;
+          //   GetComponent<Renderer>().material.color=chapter.chapter1;
             break;
        case Chapternumber.chapter2:
 
