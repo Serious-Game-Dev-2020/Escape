@@ -15,14 +15,13 @@ public class ZFix : MonoBehaviour
     void Update()
     {
     }
-    private void OnTriggerEnter(Collider other) 
+    private void OnTriggerEnter(Collider collision) 
     
     {
-     if(other.gameObject.CompareTag("Shadow"))
+     if(collision.tag == "Shadows")
      {
-        other.gameObject.SetActive(false);
-     }
-            
+        collision.gameObject.SetActive(false);
+     }  
     }
         
 }
