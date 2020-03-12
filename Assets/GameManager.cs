@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
    } 
 
    public void Init(){
-       PlayerPrefs.GetString("CurrentChapterNumber",);
+       PlayerPrefs.GetString("CurrentChapterNumber");
        SceneManager.LoadScene("Final3.0");
        SceneManager.LoadScene("WindScene");
 
