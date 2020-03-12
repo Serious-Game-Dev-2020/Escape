@@ -1,4 +1,3 @@
-
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,13 +7,16 @@ public class MarchLeftLeg : MonoBehaviour
   
     Animator leftLeg;
     Animation march;
-
+    float lastTime;
+    public Transform neighbour, parent;
+    bool inSync = true;
     
     // Start is called before the first frame update
     void Start()
     {
         leftLeg = GetComponent<Animator>();
         march = GetComponent<Animation>();
+        lastTime = Time.time;
         
     }
 
@@ -23,7 +25,17 @@ public class MarchLeftLeg : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         
         {
-        leftLeg.SetBool("Front",true);
+            leftLeg.SetBool("Front",true);
+            if ((Time.time - lastTime) < 2f) {
+                Debug.Log("works");
+               if (parent != null && neighbour != null) {
+                    parent.position = new Vector3(parent.position.x, parent.position.y, neighbour.position.z);
+                    lastTime = Time.time;
+               }
+
+            } else {
+                inSync = false;
+            }
         
         }
 
