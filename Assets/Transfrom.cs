@@ -7,9 +7,12 @@ public class Transfrom : MonoBehaviour
     {
         foreach (Transform child in transform)
         {
-            child.position += Vector3.left  * 1.0f;
+            child.position += Vector3.left  * 2.0f;
             Debug.Log("good");
+            
+            
         }
+        
     }
 
     
