@@ -1,3 +1,4 @@
+
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,7 +14,7 @@ public class SoldierMove : MonoBehaviour
     void Start()
     {
         hit = GetComponentInChildren<GameObject>();
-        soldier = transform.parent.gameObject;
+        soldier = GetComponentInParent<GameObject>();
         
     }
      void OnTriggerEnter(Collider hit) 

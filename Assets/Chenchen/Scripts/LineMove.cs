@@ -1,3 +1,4 @@
+
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,15 +20,8 @@ public class LineMove : MonoBehaviour
     void Update()
     {
         if (Smove == true ) {
-            if (Vector3.Distance(sphere.transform.position, movingpoint.transform.position) <  0.5f) {
-                sphere.transform.position = movingpoint.transform.position;
-             
-            } else
-            {
-                sphere.transform.LookAt(movingpoint.transform);
-                sphere.transform.position += sphere.transform.forward * 5f * Time.deltaTime;
-            }
-
+            sphere.transform.LookAt(movingpoint.transform);
+            sphere.transform.position += sphere.transform.forward * 5f * Time.deltaTime;
         }
         //sphere.transform.LookAt(movingpoint.transform);
         //sphere.transform.position += sphere.transform.forward * 5f * Time.deltaTime;
@@ -48,3 +42,4 @@ public class LineMove : MonoBehaviour
     }*/
    
 }
+
