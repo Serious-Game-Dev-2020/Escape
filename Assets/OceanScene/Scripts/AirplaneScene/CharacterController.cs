@@ -12,7 +12,7 @@ public class CharacterController : MonoBehaviour
     private bool  countStatus;  //是否开始计时
     private float CountDown; //倒计时
     private float CountPress;
-    public ParticleSystem pars;
+    //public ParticleSystem pars;
     public Renderer Rder;
     void Start()
     {
