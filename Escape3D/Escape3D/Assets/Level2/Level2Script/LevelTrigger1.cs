@@ -41,7 +41,7 @@ public class LevelTrigger1 : MonoBehaviour
         {
             waves.Octaves[1].speed = new Vector2(0.0f, -30);
             waves.Octaves[1].height = 0.5f;
-            boatController.forwardPower += 1.0f;
+            boatController.forwardPower = 1.0f;
             boatController.back = false;
             timer = -5.0f;
             sunParticle.Play();
