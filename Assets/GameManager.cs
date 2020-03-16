@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
    void Start()
    {
        chapter = Chapternumber.chapter1;
+       
        //change the transparance of the chapter picture
        level1 = PlayerPrefs.GetInt("level1", 0);
        level2 = PlayerPrefs.GetInt("level2", 0);
@@ -32,6 +33,11 @@ public class GameManager : MonoBehaviour
        } else {
            chapter1.SetActive(false);
        }
+       if (level2 == 1) {
+           chapter2.SetActive(true);
+       } else {
+           chapter2.SetActive(false);
+       }
    }
 
    public void Chapter1Active(int isActive = 0) {
@@ -41,6 +47,17 @@ public class GameManager : MonoBehaviour
        } else {
            chapter1.SetActive(false);
        }
+       
+   }
+
+    public void Chapter2Active(int isActive = 0) {
+       PlayerPrefs.SetInt("level2", isActive);
+        if (isActive == 1) {
+           chapter1.SetActive(true);
+       } else {
+           chapter1.SetActive(false);
+       }
+       
    }
 
    void Awake() 
