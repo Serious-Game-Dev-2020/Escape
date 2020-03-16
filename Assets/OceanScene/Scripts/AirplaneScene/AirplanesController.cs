@@ -26,7 +26,7 @@ public class AirplanesController : MonoBehaviour
 
         //GameObject[] burden = GameObject.FindGameObjectsWithTag("Burden");
 
-        for (int i = 0; i < 9; i++)
+        for (int i = 0; i < airPlane.Length; i++)
         {
            airRigidbody[i] = airPlane[i].GetComponent<Rigidbody>();
            Debug.Log(airPlane[i].name);
