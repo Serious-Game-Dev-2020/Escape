@@ -10,7 +10,7 @@ public class AirplanesController : MonoBehaviour
     //GameObject[] airPlane = new GameObject[9];
 
     int i;
-
+    public GameObject[] airPlane;
     public int fallSpeed = 5;
     //GameObject[] airPlane = GameObject.FindGameObjectsWithTag("Airplanes");
     void Start()
@@ -22,11 +22,11 @@ public class AirplanesController : MonoBehaviour
             //Debug.Log(gameObjectsManager.airPlane.name);
             Debug.Log(child.gameObject.name);
         }*/
-        GameObject[] airPlane = GameObject.FindGameObjectsWithTag("Airplanes");
+       // GameObject[] airPlane = GameObject.FindGameObjectsWithTag("Airplanes");
 
         //GameObject[] burden = GameObject.FindGameObjectsWithTag("Burden");
 
-        for (int i = 0; i < 9; i++)
+        for (int i = 0; i < airPlane.Length; i++)
         {
            airRigidbody[i] = airPlane[i].GetComponent<Rigidbody>();
            Debug.Log(airPlane[i].name);

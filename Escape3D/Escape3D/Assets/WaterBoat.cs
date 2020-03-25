@@ -39,7 +39,7 @@ public class WaterBoat : MonoBehaviour
 
     public void FixedUpdate()
     {
-        rotationOffsetY =  268.686f - freeCamera.transform.eulerAngles.y;
+        rotationOffsetY =  transform.eulerAngles.y;
         if (Input.GetAxis("Mouse X") != 0)
         {
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, freeCamera.transform.eulerAngles.y, transform.eulerAngles.z);
@@ -82,7 +82,16 @@ public class WaterBoat : MonoBehaviour
             PhysicsHelper.ApplyForceToReachVelocity(Rigidbody, forward * -MaxSpeed, forwardPower);
 
         if (back)
-            PhysicsHelper.ApplyForceToReachVelocity(Rigidbody, forward * -MaxSpeed, backPower);
+        {
+            if(transform.eulerAngles.y >= 180.0f && transform.eulerAngles.y <= 360.0f)
+            {
+                PhysicsHelper.ApplyForceToReachVelocity(Rigidbody, forward * -MaxSpeed, backPower);
+            }
+            else
+            {
+                PhysicsHelper.ApplyForceToReachVelocity(Rigidbody, -forward * -MaxSpeed, backPower);
+            }
+        }
 
         //Motor Animation // Particle system
         //Motor.SetPositionAndRotation(Motor.position, transform.rotation * StartRotation * Quaternion.Euler(0, 30f * steer, 0));
@@ -118,7 +127,7 @@ public class WaterBoat : MonoBehaviour
         if(collision.tag == "PillarShadows")
         {
             Destroy(collision.gameObject.GetComponent<PillarShadow>());
-            backPower = 1.0f;
+            backPower = 3.0f;
         }
     }
 
