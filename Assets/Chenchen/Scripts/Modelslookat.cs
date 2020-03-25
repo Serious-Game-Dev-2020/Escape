@@ -8,7 +8,7 @@ public class Modelslookat : MonoBehaviour
     
     void Update()
     {
-        Vector3 targetPosition = new Vector3(target.transform.position.x,transform.position.y,target.transform.position.z);
-        transform.LookAt(targetPosition);
+        //Vector3 targetPosition = new Vector3(target.transform.position.x,transform.position.y,target.transform.position.z);
+        transform.LookAt(target.transform.position,Vector3.up);
     }
 }
