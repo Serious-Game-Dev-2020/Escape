@@ -2,6 +2,8 @@
 
 public class Transfrom : MonoBehaviour
 {
+    internal static object position;
+
     // Start is called before the first frame update
     void Update()
     {
