@@ -29,7 +29,7 @@ public class MarchRightLeg : MonoBehaviour
         
         leftLeg.SetBool("Back",true);
             if ((Time.time - lastTime) < 2f) {
-                Debug.Log("works");
+                // Debug.Log("works");
                if (parent != null && neighbour != null) {
                     parent.position = new Vector3(parent.position.x, parent.position.y, neighbour.position.z);
                     lastTime = Time.time;

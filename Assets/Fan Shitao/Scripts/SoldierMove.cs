@@ -6,7 +6,9 @@ public class SoldierMove : MonoBehaviour
 {
     public GameObject hit;
     public GameObject soldier;
-    public float moveSpeed = 50.0f;
+    public float moveSpeed = 55.0f;
+
+    public GameObject backsolider;
     
     
     // Start is called before the first frame update
@@ -19,53 +21,16 @@ public class SoldierMove : MonoBehaviour
      void OnTriggerEnter(Collider hit) 
     {
         
-        Debug.Log("Move");
-        soldier.transform.position += Vector3.forward*moveSpeed* Time.deltaTime;
+        // Debug.Log("WasHit");
+        soldier.transform.Translate(Vector3.left * Time.deltaTime*moveSpeed, Camera.main.transform);
         
     }
 
-    public void Move() 
+     void OnCollisionEnter(Collision hit) 
     {
+        if (hit.gameObject.tag == "backsolider")
         
-        Debug.Log("Move");
-        soldier.transform.position += Vector3.forward*moveSpeed* Time.deltaTime;
+        Debug.Log("shit");
         
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-            
-        
-        
-        // if (Input.GetKeyDown(KeyCode.A))
-        // {
-            
-        // }
-        // if (Input.GetKey(KeyCode.A))
-        // {
-            // transform.position += Vector3.forward * Time.deltaTime;
-        // }
-
-        // if (Input.GetKeyUp(KeyCode.A))
-        // {
-            
-        // }
-
-        // if (Input.GetKeyDown(KeyCode.D))
-        // {
-            // transform.position += Vector3.right;
-    //     }
-    //     if (Input.GetKeyDown(KeyCode.W))
-    //     {
-    //         transform.position += Vector3.forward;
-    //     }
-    //     if (Input.GetKeyDown(KeyCode.S))
-    //     {
-    //         transform.position += Vector3.back;
-    //     }
-    // }
-    }
-
-   
 }
