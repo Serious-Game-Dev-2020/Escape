@@ -5,17 +5,8 @@ using UnityEngine;
 public class SoldierMove : MonoBehaviour
 {
     public GameObject soldier;
-    public float moveSpeed = 55.0f;
+    public float moveSpeed = 100.0f;
 
-    
-    
-     void FixedUpdate() 
-     
-    {
-        
-        
-    }
-    
      void OnTriggerEnter(Collider collision) 
     {
         if (collision.tag == "Hit")
@@ -26,11 +17,16 @@ public class SoldierMove : MonoBehaviour
         }
     }
 
-     void OnTriggerEnter(Collision hit) 
+     void OnCollisionEnter(Collider collision) 
     {
-        if (hit.gameObject.tag == "backsolider")
+        if (collision.tag == "Parent")
+        {
         
         Debug.Log("shit");
-        
+        }
     }
+
+    
+
+     
 }
