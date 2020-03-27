@@ -4,23 +4,16 @@ using UnityEngine;
 
 public class SoldierMove : MonoBehaviour
 {
-    public GameObject hit;
     public GameObject soldier;
     public float moveSpeed = 55.0f;
 
-    public GameObject backsolider;
+    public GameObject collision;
     
     
-    // Start is called before the first frame update
-    void Start()
+    
+     void OnTriggerEnter(Collider collision) 
     {
-        hit = GetComponentInChildren<GameObject>();
-        soldier = GetComponentInParent<GameObject>();
-        
-    }
-     void OnTriggerEnter(Collider hit) 
-    {
-        
+        // if (collision.gameObject.tag == "Hit")
         // Debug.Log("WasHit");
         soldier.transform.Translate(Vector3.left * Time.deltaTime*moveSpeed, Camera.main.transform);
         
