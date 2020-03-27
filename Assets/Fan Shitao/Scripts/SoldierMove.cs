@@ -12,19 +12,12 @@ public class SoldierMove : MonoBehaviour
         if (collision.tag == "Hit")
         {
         
-        Debug.Log(collision.gameObject);
+        // Debug.Log(collision.gameObject);
         soldier.transform.Translate(Vector3.left * Time.deltaTime*moveSpeed, Camera.main.transform);
         }
     }
 
-     void OnCollisionEnter(Collider collision) 
-    {
-        if (collision.tag == "Parent")
-        {
-        
-        Debug.Log("shit");
-        }
-    }
+    
 
     
 
