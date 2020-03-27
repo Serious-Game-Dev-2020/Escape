@@ -9,13 +9,18 @@ public class SoldierMove : MonoBehaviour
 
     public GameObject collision;
     
-    
+     void FixedUpdate() 
+     
+    {
+        
+        
+    }
     
      void OnTriggerEnter(Collider collision) 
     {
-        //if (collision.tag == "Hit")
+        if (collision.tag == "Hit")
         {
-        Debug.Log("WasHit");
+        
         Debug.Log(collision.gameObject);
         soldier.transform.Translate(Vector3.left * Time.deltaTime*moveSpeed, Camera.main.transform);
         }
