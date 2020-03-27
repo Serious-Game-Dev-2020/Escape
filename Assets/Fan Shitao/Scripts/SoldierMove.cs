@@ -7,7 +7,7 @@ public class SoldierMove : MonoBehaviour
     public GameObject soldier;
     public float moveSpeed = 55.0f;
 
-    public GameObject collision;
+    
     
      void FixedUpdate() 
      
@@ -26,7 +26,7 @@ public class SoldierMove : MonoBehaviour
         }
     }
 
-     void OnCollisionEnter(Collision hit) 
+     void OnTriggerEnter(Collision hit) 
     {
         if (hit.gameObject.tag == "backsolider")
         
