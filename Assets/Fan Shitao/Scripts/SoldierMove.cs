@@ -13,13 +13,8 @@ public class SoldierMove : MonoBehaviour
         {
         
         // Debug.Log(collision.gameObject);
-        soldier.transform.Translate(Vector3.left * Time.deltaTime*moveSpeed, Camera.main.transform);
+        soldier.transform.position += Vector3.forward * Time.deltaTime*moveSpeed;
         }
     }
-
-    
-
-    
-
      
 }
