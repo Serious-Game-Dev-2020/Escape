@@ -15,8 +15,9 @@ public class MarchRightLeg : MonoBehaviour
     {
         leftLeg = GetComponent<Animator>();
         march = GetComponent<Animation>();
-        neighbour = GameObject.FindWithTag("Neighbour").transform;
-        parent = GameObject.FindWithTag("Parent").transform;
+        // neighbour = GameObject.FindWithTag("Neighbour").transform;
+        // parent = GameObject.FindWithTag("Parent").transform;
+        lastTime = Time.time;
         
     }
 
@@ -27,7 +28,7 @@ public class MarchRightLeg : MonoBehaviour
 
         {
         
-        leftLeg.SetBool("Back",true);
+            leftLeg.SetBool("Back",true);
             if ((Time.time - lastTime) < 6f) {
                 // Debug.Log("works");
                if (parent != null && neighbour != null) {
