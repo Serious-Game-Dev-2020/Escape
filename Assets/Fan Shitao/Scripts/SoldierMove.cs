@@ -5,27 +5,16 @@ using UnityEngine;
 public class SoldierMove : MonoBehaviour
 {
     public GameObject soldier;
-    public float moveSpeed = 55.0f;
+    public float moveSpeed = 100.0f;
 
-    public GameObject collision;
-    
-    
-    
      void OnTriggerEnter(Collider collision) 
     {
-        //if (collision.tag == "Hit")
+        if (collision.tag == "Hit")
         {
-        Debug.Log("WasHit");
-        Debug.Log(collision.gameObject);
-        soldier.transform.Translate(Vector3.left * Time.deltaTime*moveSpeed, Camera.main.transform);
+        
+        // Debug.Log(collision.gameObject);
+        soldier.transform.position += Vector3.forward * Time.deltaTime*moveSpeed;
         }
     }
-
-     void OnCollisionEnter(Collision hit) 
-    {
-        if (hit.gameObject.tag == "backsolider")
-        
-        Debug.Log("shit");
-        
-    }
+     
 }

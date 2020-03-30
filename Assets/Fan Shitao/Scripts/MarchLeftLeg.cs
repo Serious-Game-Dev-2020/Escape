@@ -26,7 +26,7 @@ public class MarchLeftLeg : MonoBehaviour
         
         {
             leftLeg.SetBool("Front",true);
-            if ((Time.time - lastTime) < 2f) {
+            if ((Time.time - lastTime) < 6f) {
                 // Debug.Log("works");
                if (parent != null && neighbour != null) {
                     parent.position = new Vector3(parent.position.x, parent.position.y, neighbour.position.z);
