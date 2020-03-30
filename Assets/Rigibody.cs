@@ -1,21 +1,19 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-public class Transfrom : MonoBehaviour
+public class Rigibody : MonoBehaviour
 {
     internal static object position;
 
-    // Start is called before the first frame update
     void Update()
     {
-        foreach (Transform child in transform)
+        foreach (Rigidbody child in transform)
         {
             child.position += Vector3.left  * 2.0f;
             //Debug.Log("good");
             
             
         }
-        
     }
-
-    
 }

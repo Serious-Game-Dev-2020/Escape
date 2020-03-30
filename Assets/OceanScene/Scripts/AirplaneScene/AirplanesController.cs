@@ -77,14 +77,11 @@ public class AirplanesController : MonoBehaviour
             gameObjectsManager.parS[i].Play();
         }
     }*/
-    private void OnTriggerEnter(Collider other)
+    /*private void OnTriggerEnter(Collider other)
     {
             airRigidbody[i].position = new Vector3(airRigidbody[i].position.x, 200.4f ,airRigidbody[i].position.z);
             airRigidbody[i].velocity = new Vector3(0.0f, 0.0f, 0.0f);
             Debug.Log("ColliderOcean");
-        /*else if(collision.tag == "Shadows")
-        {
-            gameObjectsManager.parS[i].Play();
-        }*/
-    }
+        
+    }*/
 }
